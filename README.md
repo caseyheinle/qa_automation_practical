@@ -33,3 +33,5 @@ Invalid IssueId:
 output:
 
 `Jira issue QA-999999 not found.`
+
+I chose to use Claude Sonnet 3.5 to assist with developing this tool.

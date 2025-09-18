@@ -11,7 +11,7 @@ def parse_args():
     return parser.parse_args()
 
 def load_jira_issues(jira_path):
-    with open(jira_path, 'r') as f:
+    with open(jira_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 def select_jira_issue(issues, key):
@@ -21,28 +21,30 @@ def select_jira_issue(issues, key):
     return None
 
 def parse_git_changes(git_path):
-    # Mocked format: each commit starts with "commit <sha>", then "Message: <msg>", then "Files changed:", then indented file paths
+    # Each commit starts with "commit <sha> <message>", then "Files changed:", then file lines
     commits = []
-    with open(git_path, 'r') as f:
+    with open(git_path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
     i = 0
     while i < len(lines):
         if lines[i].startswith('commit '):
-            sha = lines[i].strip().split()[1]
+            # Parse: commit <sha> <message>
+            parts = lines[i].strip().split(' ', 2)
+            sha = parts[1]
+            msg = parts[2] if len(parts) > 2 else ''
             i += 1
-            msg = ''
             files = []
-            while i < len(lines) and not lines[i].startswith('commit '):
-                if lines[i].startswith('Message:'):
-                    msg = lines[i].strip().replace('Message:', '').strip()
-                elif lines[i].startswith('Files changed:'):
-                    i += 1
-                    # file lines are indented
-                    while i < len(lines) and lines[i].startswith('    '):
-                        files.append(lines[i].strip())
-                        i += 1
-                    continue
+            # Look for "Files changed:"
+            while i < len(lines) and not lines[i].startswith('Files changed:'):
                 i += 1
+            if i < len(lines) and lines[i].startswith('Files changed:'):
+                i += 1
+                # Parse file lines until next commit or end
+                while i < len(lines) and lines[i].strip() and not lines[i].startswith('commit '):
+                    # File line format: <path> (<insertions> insertions, <deletions> deletions)
+                    file_path = lines[i].strip().split(' (')[0]
+                    files.append(file_path)
+                    i += 1
             commits.append({'sha': sha, 'message': msg, 'files': files})
         else:
             i += 1
@@ -81,11 +83,12 @@ def generate_analysis(issue, relevant_commits, related_files):
         analysis.append("No direct commits found referencing this ticket.")
     if related_files:
         analysis.append("Likely impacted files:")
-        for f in related_files[:5]:
+        for f in related_files:
             analysis.append(f"  - {f}")
     else:
         analysis.append("No likely impacted files found.")
     analysis.append("Please review the above changes for targeted testing.")
+    # Limit the analysis output to 10 lines ensuring concise and readable results
     return '\n'.join(analysis[:10])
 
 def main():
@@ -104,6 +107,7 @@ def main():
     analysis = generate_analysis(issue, relevant_commits, related_files)
     payload = {
         "fields": {
+            # This is a hardcoded Jira custom field ID where the analysis will be stored.
             "customfield_12345": analysis
         }
     }

@@ -17,6 +17,7 @@ I observed that the provided git_changes.txt file had unnecessary line breaks in
 
 ## Example output:
 Valid IssueId:
+
 `python main.py --issue QA-1234`
 
 output:
@@ -28,6 +29,7 @@ output:
     }
 
 Invalid IssueId:
+
 `python main.py --issue QA-999999`
 
 output:

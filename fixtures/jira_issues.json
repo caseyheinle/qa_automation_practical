@@ -1,0 +1,84 @@
+[
+  {
+    "key": "QA-1234",
+    "fields": {
+      "summary": "Regression test: checkout flow with promo code",
+      "description": "Validate promo code application in the checkout flow for guest users.",
+      "issuetype": {
+        "name": "Test"
+      },
+      "labels": [
+        "checkout",
+        "promocode",
+        "regression"
+      ],
+      "customfield_12345": null
+    }
+  },
+  {
+    "key": "QA-1250",
+    "fields": {
+      "summary": "Security test: login with MFA and recovery codes",
+      "description": "Validate MFA enrollment, verification, and backup code flows.",
+      "issuetype": {
+        "name": "Test"
+      },
+      "labels": [
+        "auth",
+        "login",
+        "mfa",
+        "security"
+      ],
+      "customfield_12345": null
+    }
+  },
+  {
+    "key": "QA-1277",
+    "fields": {
+      "summary": "Search relevance: sort by rating with tie-break by recency",
+      "description": "Ensure search results are ordered by rating; recent items win on ties.",
+      "issuetype": {
+        "name": "Test"
+      },
+      "labels": [
+        "search",
+        "ranking",
+        "relevance"
+      ],
+      "customfield_12345": null
+    }
+  },
+  {
+    "key": "QA-1291",
+    "fields": {
+      "summary": "Order cancellation: refund initiation and email notification",
+      "description": "Verify cancel→refund pipeline and customer comms.",
+      "issuetype": {
+        "name": "Test"
+      },
+      "labels": [
+        "orders",
+        "refunds",
+        "notifications"
+      ],
+      "customfield_12345": null
+    }
+  },
+  {
+    "key": "QA-1305",
+    "fields": {
+      "summary": "Mobile PDP: add-to-cart and price display on small screens",
+      "description": "Check responsive layout, CTA visibility, and price accuracy on mobile.",
+      "issuetype": {
+        "name": "Test"
+      },
+      "labels": [
+        "mobile",
+        "ui",
+        "pdp",
+        "cart"
+      ],
+      "customfield_12345": null
+    }
+  }
+]

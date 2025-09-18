@@ -16,17 +16,20 @@ I observed that the provided git_changes.txt file had unnecessary line breaks in
   
 
 ## Example output:
-
+Valid IssueId:
 `python main.py --issue QA-1234`
 
 output:
 
     {
     "fields": {
-    "customfield_12345": "Test Scope: Regression test: checkout flow with promo code\nLabels: checkout, promocode, regression\nFound 2 recent commit(s) referencing this ticket:\n- 9a1b2c3: QA-1234: Add promo code validation in CheckoutService\n- 7f6e5d4: QA-1234: Refactor cart totals calculation to include promo discounts\nLikely impacted files:\n - tests/cart/cart_totals.unit.spec.js\n - src/checkout/CheckoutService.js\n - tests/checkout/promo/checkout_promo_e2e.spec.js\n - src/cart/CartTotals.js"
+      "customfield_12345": "Test Scope: Regression test: checkout flow with promo code\nLabels: checkout, promocode, regression\nFound 2 recent commit(s) referencing this ticket:\n- 9a1b2c3: QA-1234: Add promo code validation in CheckoutService\n- 7f6e5d4: QA-1234: Refactor cart totals calculation to include promo discounts\nLikely impacted files:\n - tests/cart/cart_totals.unit.spec.js\n - src/checkout/CheckoutService.js\n - tests/checkout/promo/checkout_promo_e2e.spec.js\n - src/cart/CartTotals.js"
     	}
     }
 
+Invalid IssueId:
 `python main.py --issue QA-999999`
+
 output:
+
 `Jira issue QA-999999 not found.`

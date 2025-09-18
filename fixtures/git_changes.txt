@@ -1,41 +1,56 @@
-commit 9a1b2c3 QA-1234: Add promo code validation in CheckoutService
+commit 9a1b2c3 
+Message: QA-1234: Add promo code validation in CheckoutService
 Files changed:
-src/checkout/CheckoutService.js (12 insertions, 3 deletions)
-src/checkout/PromoValidator.js (30 insertions)
-tests/checkout/promo/checkout_promo_e2e.spec.js (45 insertions)
-commit 7f6e5d4 QA-1234: Refactor cart totals calculation to include promo
+    src/checkout/CheckoutService.js (12 insertions, 3 deletions)
+    src/checkout/PromoValidator.js (30 insertions)
+    tests/checkout/promo/checkout_promo_e2e.spec.js (45 insertions)
+
+commit 7f6e5d4 
+Message: QA-1234: Refactor cart totals calculation to include promo
 discounts
 Files changed:
-src/cart/CartTotals.js (9 insertions, 7 deletions)
-tests/cart/cart_totals.unit.spec.js (14 insertions)
-commit 1d2e3f4 QA-1250: Implement MFA challenge step and recovery code
+    src/cart/CartTotals.js (9 insertions, 7 deletions)
+    tests/cart/cart_totals.unit.spec.js (14 insertions)
+
+commit 1d2e3f4 
+Message: QA-1250: Implement MFA challenge step and recovery code
 verification
 Files changed:
-src/auth/mfa/MfaService.ts (48 insertions, 5 deletions)
-src/auth/mfa/RecoveryCodes.ts (22 insertions)
-src/auth/login/LoginController.ts (11 insertions, 2 deletions)
-tests/auth/mfa/mfa_flow.spec.ts (60 insertions)
-commit a7b8c9d QA-1277: Apply rating-first sorting with recency tie-breaker
+    src/auth/mfa/MfaService.ts (48 insertions, 5 deletions)
+    src/auth/mfa/RecoveryCodes.ts (22 insertions)
+    src/auth/login/LoginController.ts (11 insertions, 2 deletions)
+    tests/auth/mfa/mfa_flow.spec.ts (60 insertions)
+
+commit a7b8c9d 
+Message: QA-1277: Apply rating-first sorting with recency tie-breaker
 Files changed:
-src/search/Ranker.js (33 insertions, 4 deletions)
-src/search/sorters/ratingSorter.js (18 insertions)
-tests/search/ranking/rating_sort_e2e.spec.js (52 insertions)
-commit e8f9a0b QA-1291: Trigger refund on cancel and send customer email
+    src/search/Ranker.js (33 insertions, 4 deletions)
+    src/search/sorters/ratingSorter.js (18 insertions)
+    tests/search/ranking/rating_sort_e2e.spec.js (52 insertions)
+
+commit e8f9a0b 
+Message: QA-1291: Trigger refund on cancel and send customer email
 Files changed:
-src/orders/CancelService.ts (25 insertions, 1 deletion)
-src/payments/RefundProcessor.ts (34 insertions, 3 deletions)
-src/notifications/EmailTemplates/cancelled_order.mjml (12 insertions)
-tests/orders/cancel_refund_flow.spec.ts (41 insertions)
-commit 0a1b2c3 QA-1305: Fix mobile PDP add-to-cart visibility and price
+    src/orders/CancelService.ts (25 insertions, 1 deletion)
+    src/payments/RefundProcessor.ts (34 insertions, 3 deletions)
+    src/notifications/EmailTemplates/cancelled_order.mjml (12 insertions)
+    tests/orders/cancel_refund_flow.spec.ts (41 insertions)
+
+commit 0a1b2c3 
+Message: QA-1305: Fix mobile PDP add-to-cart visibility and price
 wrapping
 Files changed:
-src/ui/mobile/ProductPage.tsx (28 insertions, 6 deletions)
-src/ui/components/PriceTag.tsx (10 insertions)
-tests/ui/mobile/pdp_mobile.spec.ts (37 insertions)
-commit 3c2b1a0 Chore: Fix typo in README
+    src/ui/mobile/ProductPage.tsx (28 insertions, 6 deletions)
+    src/ui/components/PriceTag.tsx (10 insertions)
+    tests/ui/mobile/pdp_mobile.spec.ts (37 insertions)
+
+commit 3c2b1a0
+Message: Chore: Fix typo in README
 Files changed:
-README.md (1 insertion)
-commit d4e5f6a Build: Bump eslint and typescript
+    README.md (1 insertion)
+
+commit d4e5f6a
+Message: Build: Bump eslint and typescript
 Files changed:
-package.json (5 insertions, 5 deletions)
-yarn.lock (120 insertions, 120 deletions)
+    package.json (5 insertions, 5 deletions)
+    yarn.lock (120 insertions, 120 deletions)
